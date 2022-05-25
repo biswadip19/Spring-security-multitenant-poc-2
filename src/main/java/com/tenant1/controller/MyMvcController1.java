@@ -1,6 +1,8 @@
 package com.tenant1.controller;
 
 
+import com.mypoc.config.MultiTenantWebSecurityConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -29,7 +31,8 @@ public class MyMvcController1 {
     public String renderWelcomeMvcPage(ModelMap model,HttpServletRequest httpServletRequest) {
         System.out.println("Inside renderWelcomeMvcPage1");
         System.out.println("Session ID Tenant#1 =====> " + httpServletRequest.getSession(false).getId());
-        model.put("name", getLoggedinUserName());
+
+       model.put("name", getLoggedinUserName());
         return "homepage";
     }
 
